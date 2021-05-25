@@ -40,3 +40,10 @@ Server=localhost;Database=northwind;Uid=root;Pwd=123456;
 
 [FastColoredTextBox](https://github.com/PavelTorgashov/FastColoredTextBox)
 
+## TODO
+
+Export table list to excel
+
+Display table schema in a new tab
+
+Export table schema to excel
