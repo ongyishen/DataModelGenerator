@@ -37,4 +37,5 @@ Server=localhost;Database=northwind;Uid=root;Pwd=123456;
 ## Thanks to following NuGet Package
 
 [SqlSugar](https://github.com/donet5/SqlSugar)
+[FastColoredTextBox](https://github.com/PavelTorgashov/FastColoredTextBox)
 
