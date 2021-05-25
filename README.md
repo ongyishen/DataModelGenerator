@@ -14,7 +14,7 @@ alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box
 ## Screenshot
 <img src="https://github.com/ongyishen/DataModelGenerator/blob/main/Sample.gif?raw=true" />
 
-## Sample MSSQL Northwind Database Scripts [instnwnd.sql]
+## Sample MSSQL Northwind Database Scripts [instnwnd.sql](https://github.com/ongyishen/DataModelGenerator/blob/main/instnwnd.sql)
 
 ## Sample Connection String
 ### MSSQL
