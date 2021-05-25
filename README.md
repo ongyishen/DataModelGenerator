@@ -1,6 +1,5 @@
 # DataModelGenerator
 
-# WinFormFTPDownloadFiles
 C# Program to generate model class from Database Table (MSSQL or MYSQL) (.net framework 4.8)
 
 ## Donation
