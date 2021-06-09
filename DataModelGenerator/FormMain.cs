@@ -1,4 +1,5 @@
-﻿using SqlSugar;
+﻿using ClosedXML.Excel;
+using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,6 +17,7 @@ namespace DataModelGenerator
         DBConfig myDBConfig { get; set; }
         List<DbTableInfo> tableList { get; set; }
         BindingSource bs { get; set; }
+        List<DbColumnInfo> colsInfo { get; set; }
 
         public FormMain()
         {
@@ -124,9 +126,9 @@ namespace DataModelGenerator
                 bs = new BindingSource();
                 bs.DataSource = tableList;
 
-                dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.DataSource = bs;
-                dataGridView1.AutoResizeColumn(0);
+                dgvTable.AutoGenerateColumns = false;
+                dgvTable.DataSource = bs;
+                dgvTable.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception ex)
             {
@@ -174,13 +176,16 @@ namespace DataModelGenerator
             return DataType;
         }
 
+        /// <summary>
+        /// Generate Class Model
+        /// </summary>
         public void GenerateModel()
         {
             try
             {
                 var db = GetDBInstance();
 
-                var colsInfo = db.DbMaintenance.GetColumnInfosByTableName(txtTableName.Text);
+                colsInfo = db.DbMaintenance.GetColumnInfosByTableName(txtTableName.Text);
 
                 if (colsInfo.Any())
                 {
@@ -212,6 +217,108 @@ namespace DataModelGenerator
             }
         }
 
+        /// <summary>
+        /// Display Table Column Schema in Grid
+        /// </summary>
+        public void PopupdateToGrid()
+        {
+            try
+            {
+                this.dgvTableColSchema.AutoGenerateColumns = false;
+                this.dgvTableColSchema.DataSource = colsInfo;
+                this.dgvTableColSchema.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            }
+            catch (Exception ex)
+            {
+
+                ex.AlertError();
+            }
+        }
+
+        public DataTable GenerateDataTable()
+        {
+            //Creating DataTable  
+            DataTable dt = new DataTable();
+            //Setiing Table Name  
+            dt.TableName = txtTableName.Text;
+            //Add Columns  
+            dt.Columns.Add("TableName", typeof(string));
+            dt.Columns.Add("DbColumnName", typeof(string));
+            dt.Columns.Add("ColumnDescription", typeof(string));
+            dt.Columns.Add("DataType", typeof(string));
+            dt.Columns.Add("Length", typeof(int));
+            dt.Columns.Add("IsPrimarykey", typeof(bool));
+            dt.Columns.Add("IsIdentity", typeof(bool));
+            dt.Columns.Add("IsNullable", typeof(bool));
+            dt.Columns.Add("DefaultValue", typeof(string));
+
+            foreach (var col in colsInfo)
+            {
+                DataRow drNew = dt.NewRow();
+
+                drNew["TableName"] = col.TableName;
+                drNew["DbColumnName"] = col.DbColumnName;
+                drNew["ColumnDescription"] = col.ColumnDescription;
+                drNew["DataType"] = col.DataType;
+                drNew["Length"] = col.Length;
+                drNew["IsPrimarykey"] = col.IsPrimarykey;
+                drNew["IsIdentity"] = col.IsIdentity;
+                drNew["IsNullable"] = col.IsNullable;
+                drNew["DefaultValue"] = col.DefaultValue;
+
+
+                dt.Rows.Add(drNew);
+            }
+
+
+            dt.AcceptChanges();
+            return dt;
+        }
+
+        public void ExportAsExcel()
+        {
+            try
+            {
+                using (SaveFileDialog dialog = new SaveFileDialog())
+                {
+                    dialog.FileName = $"{txtTableName.Text.Replace(" ", "_")}.xlsx";
+                    dialog.Filter = ".xlsx | *.xlsx ";
+                    if (dialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        using (XLWorkbook wb = new XLWorkbook())
+                        {
+                            var dt = GenerateDataTable();
+                            wb.Worksheets.Add(dt);
+                            wb.SaveAs(dialog.FileName);
+                        }
+
+
+
+                        if (File.Exists(dialog.FileName))
+                        {
+                            Process.Start(dialog.FileName);
+                        }
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ex.AlertError();
+            }
+        }
+
+        /// <summary>
+        /// Run All Action
+        /// </summary>
+        public void PerformAction()
+        {
+            GenerateModel();
+            PopupdateToGrid();
+        }
+
         private void btnRefreshTable_Click(object sender, EventArgs e)
         {
             SaveConfig();
@@ -241,9 +348,10 @@ namespace DataModelGenerator
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = this.dgvTable.Rows[e.RowIndex];
                 this.txtTableName.Text = row.Cells[0].Value.ToString();
-                GenerateModel();
+
+                PerformAction();
             }
         }
 
@@ -270,18 +378,18 @@ namespace DataModelGenerator
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
-            try
-            {
-                if (e.KeyCode == Keys.Space)
-                {
-                    GenerateModel();
-                }
-            }
-            catch //(Exception)
-            {
+            //try
+            //{
+            //    if (e.KeyCode == Keys.Space)
+            //    {
+            //        PerformAction();
+            //    }
+            //}
+            //catch //(Exception)
+            //{
 
-                // throw;
-            }
+            //    // throw;
+            //}
 
 
         }
@@ -309,6 +417,11 @@ namespace DataModelGenerator
 
                 ex.AlertError();
             }
+        }
+
+        private void btnExportAsExcel_Click(object sender, EventArgs e)
+        {
+            ExportAsExcel();
         }
     }
 }
