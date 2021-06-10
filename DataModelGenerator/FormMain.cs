@@ -18,6 +18,7 @@ namespace DataModelGenerator
         List<DbTableInfo> tableList { get; set; }
         BindingSource bs { get; set; }
         List<DbColumnInfo> colsInfo { get; set; }
+        public DataTable dtData { get; set; }
 
         public FormMain()
         {
@@ -37,6 +38,19 @@ namespace DataModelGenerator
                 }
 
                 return SqlSugar.DbType.SqlServer;
+            }
+        }
+
+        public string SelectedTableName
+        {
+            get
+            {
+                return txtTableName.Text;
+            }
+
+            set
+            {
+                this.txtTableName.Text = value;
             }
         }
 
@@ -185,13 +199,13 @@ namespace DataModelGenerator
             {
                 var db = GetDBInstance();
 
-                colsInfo = db.DbMaintenance.GetColumnInfosByTableName(txtTableName.Text);
+                colsInfo = db.DbMaintenance.GetColumnInfosByTableName(SelectedTableName);
 
                 if (colsInfo.Any())
                 {
                     StringBuilder sb = new StringBuilder();
 
-                    sb.AppendLine($"public class {txtTableName.Text.Replace(" ", "_")} {"{"}");
+                    sb.AppendLine($"public class {SelectedTableName.Replace(" ", "_")} {"{"}");
 
                     foreach (var col in colsInfo)
                     {
@@ -226,13 +240,13 @@ namespace DataModelGenerator
             {
                 var db = GetDBInstance();
 
-                colsInfo = db.DbMaintenance.GetColumnInfosByTableName(txtTableName.Text);
+                colsInfo = db.DbMaintenance.GetColumnInfosByTableName(SelectedTableName);
 
                 if (colsInfo.Any())
                 {
                     StringBuilder sb = new StringBuilder();
 
-                    string sqlTableName = txtTableName.Text.Replace(" ", "_");
+                    string sqlTableName = SelectedTableName.Replace(" ", "_");
 
                     sb.AppendLine($"[SugarTable(\"{sqlTableName}\")]");
                     sb.AppendLine($"public class {sqlTableName} {"{"}");
@@ -290,7 +304,7 @@ namespace DataModelGenerator
             //Creating DataTable  
             DataTable dt = new DataTable();
             //Setiing Table Name  
-            dt.TableName = txtTableName.Text;
+            dt.TableName = SelectedTableName;
             //Add Columns  
             dt.Columns.Add("TableName", typeof(string));
             dt.Columns.Add("DbColumnName", typeof(string));
@@ -331,7 +345,7 @@ namespace DataModelGenerator
             {
                 using (SaveFileDialog dialog = new SaveFileDialog())
                 {
-                    dialog.FileName = $"{txtTableName.Text.Replace(" ", "_")}.xlsx";
+                    dialog.FileName = $"{SelectedTableName.Replace(" ", "_")}.xlsx";
                     dialog.Filter = ".xlsx | *.xlsx ";
                     if (dialog.ShowDialog(this) == DialogResult.OK)
                     {
@@ -366,7 +380,7 @@ namespace DataModelGenerator
             {
                 using (SaveFileDialog dialog = new SaveFileDialog())
                 {
-                    dialog.FileName = $"{txtTableName.Text.Replace(" ", "_")}.cs";
+                    dialog.FileName = $"{SelectedTableName.Replace(" ", "_")}.cs";
                     dialog.Filter = ".cs | *.cs | .txt | *.txt ";
                     if (dialog.ShowDialog(this) == DialogResult.OK)
                     {
@@ -377,6 +391,49 @@ namespace DataModelGenerator
                         Process.Start(dir);
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+
+                ex.AlertError();
+            }
+        }
+
+        /// <summary>
+        /// Quick View of Data
+        /// </summary>
+        public void LoadData()
+        {
+            try
+            {
+                if (SelectedTableName.Length == 0)
+                {
+                    "Please select a table".AlertError();
+                    return;
+                }
+
+                string sql = $@"";
+                int rowCount = 200;
+                if (this.SelectedDbType == SqlSugar.DbType.SqlServer)
+                {
+                    sql = $@"SELECT TOP {rowCount} * FROM {SelectedTableName}";
+                }
+                else
+                {
+                    sql = $@"SELECT * FROM {SelectedTableName} LIMIT {rowCount}";
+                }
+
+                dgvData.Columns.Clear();
+                dgvData.AutoGenerateColumns = true;
+
+                using (var db = GetDBInstance())
+                {
+                    dtData = db.Ado.GetDataTable(sql);
+
+                }
+
+                dgvData.DataSource = dtData;
+                dgvData.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception ex)
             {
@@ -425,7 +482,7 @@ namespace DataModelGenerator
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvTable.Rows[e.RowIndex];
-                this.txtTableName.Text = row.Cells[0].Value.ToString();
+                this.SelectedTableName = row.Cells[0].Value.ToString();
 
                 PerformAction();
             }
@@ -508,6 +565,13 @@ namespace DataModelGenerator
         {
             ExportCSFile(this.txtCodeSqlSugar.Text);
 
+        }
+
+        private void btnLoad200Rows_Click(object sender, EventArgs e)
+        {
+            btnLoad200Rows.DisableBtn();
+            LoadData();
+            btnLoad200Rows.EnableBtn();
         }
     }
 }

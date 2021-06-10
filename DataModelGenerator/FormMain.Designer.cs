@@ -73,6 +73,10 @@
             this.btnExportCSSqlSugar = new System.Windows.Forms.Button();
             this.btnCopySqlSugar = new System.Windows.Forms.Button();
             this.txtCodeSqlSugar = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnLoad200Rows = new System.Windows.Forms.Button();
+            this.dgvData = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -95,6 +99,9 @@
             this.tabPage3.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCodeSqlSugar)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -216,6 +223,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 29);
             this.tabControl1.Name = "tabControl1";
@@ -584,6 +592,52 @@
             this.txtCodeSqlSugar.TabIndex = 3;
             this.txtCodeSqlSugar.Zoom = 100;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dgvData);
+            this.tabPage4.Controls.Add(this.panel11);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(612, 444);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Quick View Data";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // panel11
+            // 
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.btnLoad200Rows);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(606, 38);
+            this.panel11.TabIndex = 3;
+            // 
+            // btnLoad200Rows
+            // 
+            this.btnLoad200Rows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoad200Rows.Location = new System.Drawing.Point(438, 8);
+            this.btnLoad200Rows.Name = "btnLoad200Rows";
+            this.btnLoad200Rows.Size = new System.Drawing.Size(163, 23);
+            this.btnLoad200Rows.TabIndex = 4;
+            this.btnLoad200Rows.Text = "Load First 200 Rows";
+            this.btnLoad200Rows.UseVisualStyleBackColor = true;
+            this.btnLoad200Rows.Click += new System.EventHandler(this.btnLoad200Rows_Click);
+            // 
+            // dgvData
+            // 
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.AllowUserToDeleteRows = false;
+            this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvData.Location = new System.Drawing.Point(3, 41);
+            this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
+            this.dgvData.Size = new System.Drawing.Size(606, 400);
+            this.dgvData.TabIndex = 4;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,6 +674,9 @@
             this.tabPage3.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtCodeSqlSugar)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -669,6 +726,10 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button btnExportCSSqlSugar;
         private System.Windows.Forms.Button btnCopySqlSugar;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button btnLoad200Rows;
     }
 }
 
