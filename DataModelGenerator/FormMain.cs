@@ -218,6 +218,56 @@ namespace DataModelGenerator
         }
 
         /// <summary>
+        /// Generate SqlSugar Class Model
+        /// </summary>
+        public void GenerateModelSqlSugar()
+        {
+            try
+            {
+                var db = GetDBInstance();
+
+                colsInfo = db.DbMaintenance.GetColumnInfosByTableName(txtTableName.Text);
+
+                if (colsInfo.Any())
+                {
+                    StringBuilder sb = new StringBuilder();
+
+                    string sqlTableName = txtTableName.Text.Replace(" ", "_");
+
+                    sb.AppendLine($"[SugarTable(\"{sqlTableName}\")]");
+                    sb.AppendLine($"public class {sqlTableName} {"{"}");
+
+                    foreach (var col in colsInfo)
+                    {
+                        sb.AppendLine("");
+
+                        if (col.IsPrimarykey)
+                        {
+                            sb.AppendLine($"\t [SugarColumn(IsPrimaryKey = true)]");
+                        }
+
+                        sb.AppendLine($"\t public {GetColumnDataType(col.DataType)} {col.DbColumnName} {"{"} get; set;  {"}"}");
+
+                    }
+
+                    sb.Append("}");
+
+
+                    txtCodeSqlSugar.Text = sb.ToString();
+                }
+                else
+                {
+                    this.txtCodeSqlSugar.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ex.AlertError();
+            }
+        }
+
+        /// <summary>
         /// Display Table Column Schema in Grid
         /// </summary>
         public void PopupdateToGrid()
@@ -310,12 +360,38 @@ namespace DataModelGenerator
             }
         }
 
+        public void ExportCSFile(string codeContent)
+        {
+            try
+            {
+                using (SaveFileDialog dialog = new SaveFileDialog())
+                {
+                    dialog.FileName = $"{txtTableName.Text.Replace(" ", "_")}.cs";
+                    dialog.Filter = ".cs | *.cs | .txt | *.txt ";
+                    if (dialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        dialog.FileName.SaveCS(codeContent);
+
+                        var dir = Path.GetDirectoryName(dialog.FileName);
+
+                        Process.Start(dir);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ex.AlertError();
+            }
+        }
+
         /// <summary>
         /// Run All Action
         /// </summary>
         public void PerformAction()
         {
             GenerateModel();
+            GenerateModelSqlSugar();
             PopupdateToGrid();
         }
 
@@ -398,19 +474,10 @@ namespace DataModelGenerator
         {
             try
             {
-                using (SaveFileDialog dialog = new SaveFileDialog())
-                {
-                    dialog.FileName = $"{txtTableName.Text.Replace(" ", "_")}.cs";
-                    dialog.Filter = ".cs | *.cs | .txt | *.txt ";
-                    if (dialog.ShowDialog(this) == DialogResult.OK)
-                    {
-                        dialog.FileName.SaveCS(txtCode.Text);
 
-                        var dir = Path.GetDirectoryName(dialog.FileName);
+                ExportCSFile(txtCode.Text);
 
-                        Process.Start(dir);
-                    }
-                }
+
             }
             catch (Exception ex)
             {
@@ -422,6 +489,25 @@ namespace DataModelGenerator
         private void btnExportAsExcel_Click(object sender, EventArgs e)
         {
             ExportAsExcel();
+        }
+
+        private void btnCopySqlSugar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(this.txtCodeSqlSugar.Text);
+            }
+            catch //(Exception)
+            {
+
+                //throw;
+            }
+        }
+
+        private void btnExportCSSqlSugar_Click(object sender, EventArgs e)
+        {
+            ExportCSFile(this.txtCodeSqlSugar.Text);
+
         }
     }
 }

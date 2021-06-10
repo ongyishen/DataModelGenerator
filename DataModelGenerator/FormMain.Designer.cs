@@ -39,25 +39,11 @@
             this.txtSearchTxt = new System.Windows.Forms.TextBox();
             this.btnRefreshTable = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtCode = new FastColoredTextBoxNS.FastColoredTextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnExportCS = new System.Windows.Forms.Button();
-            this.txtTableName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnCopy = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cboDbType = new System.Windows.Forms.ComboBox();
-            this.txtDBConnString = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnExportAsExcel = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dgvTableColSchema = new System.Windows.Forms.DataGridView();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +54,25 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnExportAsExcel = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtCode = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExportCS = new System.Windows.Forms.Button();
+            this.btnCopy = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTableName = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cboDbType = new System.Windows.Forms.ComboBox();
+            this.txtDBConnString = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btnExportCSSqlSugar = new System.Windows.Forms.Button();
+            this.btnCopySqlSugar = new System.Windows.Forms.Button();
+            this.txtCodeSqlSugar = new FastColoredTextBoxNS.FastColoredTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,17 +81,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTable)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableColSchema)).BeginInit();
-            this.panel8.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
+            this.panel2.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodeSqlSugar)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -193,138 +201,21 @@
             this.panel3.Size = new System.Drawing.Size(620, 499);
             this.panel3.TabIndex = 2;
             // 
-            // txtCode
+            // panel8
             // 
-            this.txtCode.AutoCompleteBracketsList = new char[] {
-        '(',
-        ')',
-        '{',
-        '}',
-        '[',
-        ']',
-        '\"',
-        '\"',
-        '\'',
-        '\''};
-            this.txtCode.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n^\\s*(case|default)\\s*[^:]" +
-    "*(?<range>:)\\s*(?<range>[^;]+);\r\n";
-            this.txtCode.AutoScrollMinSize = new System.Drawing.Size(27, 14);
-            this.txtCode.BackBrush = null;
-            this.txtCode.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
-            this.txtCode.CharHeight = 14;
-            this.txtCode.CharWidth = 8;
-            this.txtCode.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCode.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.txtCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCode.IsReplaceMode = false;
-            this.txtCode.Language = FastColoredTextBoxNS.Language.CSharp;
-            this.txtCode.LeftBracket = '(';
-            this.txtCode.LeftBracket2 = '{';
-            this.txtCode.Location = new System.Drawing.Point(3, 41);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Paddings = new System.Windows.Forms.Padding(0);
-            this.txtCode.RightBracket = ')';
-            this.txtCode.RightBracket2 = '}';
-            this.txtCode.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.txtCode.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("txtCode.ServiceColors")));
-            this.txtCode.Size = new System.Drawing.Size(606, 400);
-            this.txtCode.TabIndex = 0;
-            this.txtCode.Zoom = 100;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnExportCS);
-            this.panel2.Controls.Add(this.btnCopy);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(606, 38);
-            this.panel2.TabIndex = 1;
-            // 
-            // btnExportCS
-            // 
-            this.btnExportCS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportCS.Location = new System.Drawing.Point(438, 8);
-            this.btnExportCS.Name = "btnExportCS";
-            this.btnExportCS.Size = new System.Drawing.Size(163, 23);
-            this.btnExportCS.TabIndex = 4;
-            this.btnExportCS.Text = "Export CS File";
-            this.btnExportCS.UseVisualStyleBackColor = true;
-            this.btnExportCS.Click += new System.EventHandler(this.btnExportCS_Click);
-            // 
-            // txtTableName
-            // 
-            this.txtTableName.Location = new System.Drawing.Point(122, 3);
-            this.txtTableName.Name = "txtTableName";
-            this.txtTableName.ReadOnly = true;
-            this.txtTableName.Size = new System.Drawing.Size(134, 20);
-            this.txtTableName.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Table Name";
-            // 
-            // btnCopy
-            // 
-            this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCopy.Location = new System.Drawing.Point(271, 8);
-            this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(163, 23);
-            this.btnCopy.TabIndex = 1;
-            this.btnCopy.Text = "Copy to Clipboard";
-            this.btnCopy.UseVisualStyleBackColor = true;
-            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.cboDbType);
-            this.panel1.Controls.Add(this.txtDBConnString);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(620, 35);
-            this.panel1.TabIndex = 0;
-            // 
-            // cboDbType
-            // 
-            this.cboDbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDbType.FormattingEnabled = true;
-            this.cboDbType.Items.AddRange(new object[] {
-            "MSSQL",
-            "MYSQL"});
-            this.cboDbType.Location = new System.Drawing.Point(121, 6);
-            this.cboDbType.Name = "cboDbType";
-            this.cboDbType.Size = new System.Drawing.Size(121, 21);
-            this.cboDbType.TabIndex = 2;
-            // 
-            // txtDBConnString
-            // 
-            this.txtDBConnString.Location = new System.Drawing.Point(248, 6);
-            this.txtDBConnString.Name = "txtDBConnString";
-            this.txtDBConnString.Size = new System.Drawing.Size(360, 20);
-            this.txtDBConnString.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Connection String";
+            this.panel8.Controls.Add(this.tabControl1);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(620, 499);
+            this.panel8.TabIndex = 3;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 29);
             this.tabControl1.Name = "tabControl1";
@@ -343,39 +234,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Table Schema";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.txtCode);
-            this.tabPage2.Controls.Add(this.panel2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(612, 444);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Class Model";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.btnExportAsExcel);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(606, 38);
-            this.panel6.TabIndex = 2;
-            // 
-            // btnExportAsExcel
-            // 
-            this.btnExportAsExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExportAsExcel.Location = new System.Drawing.Point(438, 5);
-            this.btnExportAsExcel.Name = "btnExportAsExcel";
-            this.btnExportAsExcel.Size = new System.Drawing.Size(163, 23);
-            this.btnExportAsExcel.TabIndex = 4;
-            this.btnExportAsExcel.Text = "Export As Excel";
-            this.btnExportAsExcel.UseVisualStyleBackColor = true;
-            this.btnExportAsExcel.Click += new System.EventHandler(this.btnExportAsExcel_Click);
             // 
             // panel7
             // 
@@ -407,27 +265,6 @@
             this.dgvTableColSchema.Name = "dgvTableColSchema";
             this.dgvTableColSchema.Size = new System.Drawing.Size(606, 400);
             this.dgvTableColSchema.TabIndex = 0;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.tabControl1);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(620, 499);
-            this.panel8.TabIndex = 3;
-            // 
-            // panel9
-            // 
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.label2);
-            this.panel9.Controls.Add(this.txtTableName);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(620, 29);
-            this.panel9.TabIndex = 3;
             // 
             // Column2
             // 
@@ -489,6 +326,264 @@
             this.Column11.HeaderText = "DefaultValue";
             this.Column11.Name = "Column11";
             // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.btnExportAsExcel);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(606, 38);
+            this.panel6.TabIndex = 2;
+            // 
+            // btnExportAsExcel
+            // 
+            this.btnExportAsExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportAsExcel.Location = new System.Drawing.Point(438, 5);
+            this.btnExportAsExcel.Name = "btnExportAsExcel";
+            this.btnExportAsExcel.Size = new System.Drawing.Size(163, 23);
+            this.btnExportAsExcel.TabIndex = 4;
+            this.btnExportAsExcel.Text = "Export As Excel";
+            this.btnExportAsExcel.UseVisualStyleBackColor = true;
+            this.btnExportAsExcel.Click += new System.EventHandler(this.btnExportAsExcel_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.txtCode);
+            this.tabPage2.Controls.Add(this.panel2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(612, 444);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Class Model";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtCode
+            // 
+            this.txtCode.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.txtCode.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n^\\s*(case|default)\\s*[^:]" +
+    "*(?<range>:)\\s*(?<range>[^;]+);\r\n";
+            this.txtCode.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.txtCode.BackBrush = null;
+            this.txtCode.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
+            this.txtCode.CharHeight = 14;
+            this.txtCode.CharWidth = 8;
+            this.txtCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCode.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.txtCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCode.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.txtCode.IsReplaceMode = false;
+            this.txtCode.Language = FastColoredTextBoxNS.Language.CSharp;
+            this.txtCode.LeftBracket = '(';
+            this.txtCode.LeftBracket2 = '{';
+            this.txtCode.Location = new System.Drawing.Point(3, 41);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Paddings = new System.Windows.Forms.Padding(0);
+            this.txtCode.RightBracket = ')';
+            this.txtCode.RightBracket2 = '}';
+            this.txtCode.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.txtCode.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("txtCode.ServiceColors")));
+            this.txtCode.Size = new System.Drawing.Size(606, 400);
+            this.txtCode.TabIndex = 0;
+            this.txtCode.Zoom = 100;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnExportCS);
+            this.panel2.Controls.Add(this.btnCopy);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(606, 38);
+            this.panel2.TabIndex = 1;
+            // 
+            // btnExportCS
+            // 
+            this.btnExportCS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportCS.Location = new System.Drawing.Point(438, 8);
+            this.btnExportCS.Name = "btnExportCS";
+            this.btnExportCS.Size = new System.Drawing.Size(163, 23);
+            this.btnExportCS.TabIndex = 4;
+            this.btnExportCS.Text = "Export CS File";
+            this.btnExportCS.UseVisualStyleBackColor = true;
+            this.btnExportCS.Click += new System.EventHandler(this.btnExportCS_Click);
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopy.Location = new System.Drawing.Point(271, 8);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(163, 23);
+            this.btnCopy.TabIndex = 1;
+            this.btnCopy.Text = "Copy to Clipboard";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Controls.Add(this.txtTableName);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(620, 29);
+            this.panel9.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Table Name";
+            // 
+            // txtTableName
+            // 
+            this.txtTableName.Location = new System.Drawing.Point(122, 3);
+            this.txtTableName.Name = "txtTableName";
+            this.txtTableName.ReadOnly = true;
+            this.txtTableName.Size = new System.Drawing.Size(319, 20);
+            this.txtTableName.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cboDbType);
+            this.panel1.Controls.Add(this.txtDBConnString);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(620, 35);
+            this.panel1.TabIndex = 0;
+            // 
+            // cboDbType
+            // 
+            this.cboDbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDbType.FormattingEnabled = true;
+            this.cboDbType.Items.AddRange(new object[] {
+            "MSSQL",
+            "MYSQL"});
+            this.cboDbType.Location = new System.Drawing.Point(121, 6);
+            this.cboDbType.Name = "cboDbType";
+            this.cboDbType.Size = new System.Drawing.Size(121, 21);
+            this.cboDbType.TabIndex = 2;
+            // 
+            // txtDBConnString
+            // 
+            this.txtDBConnString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDBConnString.Location = new System.Drawing.Point(248, 6);
+            this.txtDBConnString.Name = "txtDBConnString";
+            this.txtDBConnString.Size = new System.Drawing.Size(360, 20);
+            this.txtDBConnString.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Connection String";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.txtCodeSqlSugar);
+            this.tabPage3.Controls.Add(this.panel10);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(612, 444);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "SqlSugar Class Model";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel10
+            // 
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.btnExportCSSqlSugar);
+            this.panel10.Controls.Add(this.btnCopySqlSugar);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(3, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(606, 38);
+            this.panel10.TabIndex = 2;
+            // 
+            // btnExportCSSqlSugar
+            // 
+            this.btnExportCSSqlSugar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportCSSqlSugar.Location = new System.Drawing.Point(438, 8);
+            this.btnExportCSSqlSugar.Name = "btnExportCSSqlSugar";
+            this.btnExportCSSqlSugar.Size = new System.Drawing.Size(163, 23);
+            this.btnExportCSSqlSugar.TabIndex = 4;
+            this.btnExportCSSqlSugar.Text = "Export CS File";
+            this.btnExportCSSqlSugar.UseVisualStyleBackColor = true;
+            this.btnExportCSSqlSugar.Click += new System.EventHandler(this.btnExportCSSqlSugar_Click);
+            // 
+            // btnCopySqlSugar
+            // 
+            this.btnCopySqlSugar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopySqlSugar.Location = new System.Drawing.Point(271, 8);
+            this.btnCopySqlSugar.Name = "btnCopySqlSugar";
+            this.btnCopySqlSugar.Size = new System.Drawing.Size(163, 23);
+            this.btnCopySqlSugar.TabIndex = 1;
+            this.btnCopySqlSugar.Text = "Copy to Clipboard";
+            this.btnCopySqlSugar.UseVisualStyleBackColor = true;
+            this.btnCopySqlSugar.Click += new System.EventHandler(this.btnCopySqlSugar_Click);
+            // 
+            // txtCodeSqlSugar
+            // 
+            this.txtCodeSqlSugar.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.txtCodeSqlSugar.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n^\\s*(case|default)\\s*[^:]" +
+    "*(?<range>:)\\s*(?<range>[^;]+);\r\n";
+            this.txtCodeSqlSugar.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.txtCodeSqlSugar.BackBrush = null;
+            this.txtCodeSqlSugar.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
+            this.txtCodeSqlSugar.CharHeight = 14;
+            this.txtCodeSqlSugar.CharWidth = 8;
+            this.txtCodeSqlSugar.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodeSqlSugar.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.txtCodeSqlSugar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCodeSqlSugar.IsReplaceMode = false;
+            this.txtCodeSqlSugar.Language = FastColoredTextBoxNS.Language.CSharp;
+            this.txtCodeSqlSugar.LeftBracket = '(';
+            this.txtCodeSqlSugar.LeftBracket2 = '{';
+            this.txtCodeSqlSugar.Location = new System.Drawing.Point(3, 41);
+            this.txtCodeSqlSugar.Name = "txtCodeSqlSugar";
+            this.txtCodeSqlSugar.Paddings = new System.Windows.Forms.Padding(0);
+            this.txtCodeSqlSugar.RightBracket = ')';
+            this.txtCodeSqlSugar.RightBracket2 = '}';
+            this.txtCodeSqlSugar.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.txtCodeSqlSugar.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("txtCodeSqlSugar.ServiceColors")));
+            this.txtCodeSqlSugar.Size = new System.Drawing.Size(606, 400);
+            this.txtCodeSqlSugar.TabIndex = 3;
+            this.txtCodeSqlSugar.Zoom = 100;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,19 +604,22 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableColSchema)).EndInit();
-            this.panel8.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodeSqlSugar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -566,6 +664,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.TabPage tabPage3;
+        private FastColoredTextBoxNS.FastColoredTextBox txtCodeSqlSugar;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button btnExportCSSqlSugar;
+        private System.Windows.Forms.Button btnCopySqlSugar;
     }
 }
 
