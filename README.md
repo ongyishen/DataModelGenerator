@@ -2,6 +2,11 @@
 
 C# Program to generate model class from Database Table (MSSQL or MYSQL) (.net framework 4.8)
 
+## Features:
+C# Class Model Generator
+C# SqlSugar Class Model Generator
+Table Column Schema Export
+
 ## Donation
 
 If this project helped you reduce time to develop, please consider buying me a cup of coffee :)
