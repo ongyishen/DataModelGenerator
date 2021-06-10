@@ -137,6 +137,9 @@ namespace DataModelGenerator
                     tableList = tableList.Where(x => x.Name.Contains(tableFilter)).ToList();
                 }
 
+
+                tableList = tableList.OrderBy(x => x.Name).ToList();
+
                 bs = new BindingSource();
                 bs.DataSource = tableList;
 
