@@ -51,6 +51,6 @@ Server=localhost;Database=northwind;Uid=root;Pwd=123456;
 
 ## TODO
 
-- [ ] Multi Export Table Column Schema in Excel
-- [ ] Quick View First 200 Rows Data
+- [ ] Export multi tables column schema in separate excel
+- [ ] Quick view first 200 rows data of selected table
 
