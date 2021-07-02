@@ -309,6 +309,7 @@ namespace DataModelGenerator
             //Setiing Table Name  
             dt.TableName = SelectedTableName;
             //Add Columns  
+            dt.Columns.Add("Seq", typeof(int));
             dt.Columns.Add("TableName", typeof(string));
             dt.Columns.Add("DbColumnName", typeof(string));
             dt.Columns.Add("ColumnDescription", typeof(string));
@@ -319,10 +320,12 @@ namespace DataModelGenerator
             dt.Columns.Add("IsNullable", typeof(bool));
             dt.Columns.Add("DefaultValue", typeof(string));
 
+            int iSeq = 1;
             foreach (var col in colsInfo)
             {
                 DataRow drNew = dt.NewRow();
 
+                drNew["Seq"] = iSeq++;
                 drNew["TableName"] = col.TableName;
                 drNew["DbColumnName"] = col.DbColumnName;
                 drNew["ColumnDescription"] = col.ColumnDescription;
