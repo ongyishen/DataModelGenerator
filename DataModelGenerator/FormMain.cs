@@ -358,7 +358,7 @@ namespace DataModelGenerator
                         using (XLWorkbook wb = new XLWorkbook())
                         {
                             var dt = GenerateDataTable();
-                            wb.Worksheets.Add(dt);
+                            wb.Worksheets.Add(dt, "myTable");
                             wb.SaveAs(dialog.FileName);
                         }
 
