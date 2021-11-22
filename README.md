@@ -7,7 +7,8 @@ C# Program to generate model class from Database Table (MSSQL or MYSQL) (.net fr
 - C# SqlSugar Class Model Generator
 - Table Column Schema Export
 
-
+Get your **free** Apple Stock when sign up & deposit to Tiger Brokers 
+[ClickHere](https://www.tigerbrokers.com.sg/activity/forapp/invitflow-intl/signup.html?template=invite202011&lang=en_US&invite=E9WV2L)
 
 ## Donation
 
